@@ -1,13 +1,18 @@
 const WHATSAPP_NUMBER = "18623798696";
 
 const products = {
-  parfait: { es: "Parfait de mora · 9 oz", en: "Blackberry parfait · 9 oz", price: 6 },
-  rice: { es: "Arroz con leche", en: "Rice pudding", price: 5 },
-  gelatin: { es: "Gelatina mosaico", en: "Mosaic gelatin", price: 5 },
-  mango: { es: "Cheesecake de mango · 9 oz", en: "Mango cheesecake · 9 oz", price: 6 },
-  carlota: { es: "Carlota de limón · 9 oz", en: "Lime carlota · 9 oz", price: 6 },
-  passionSmall: { es: "Mousse de maracuyá · Pequeño", en: "Passion fruit mousse · Small", price: 3 },
-  passionLarge: { es: "Mousse de maracuyá · Grande 9 oz", en: "Passion fruit mousse · Large 9 oz", price: 6 },
+  parfait5: { es: "Parfait de mora · 5 oz", en: "Blackberry parfait · 5 oz", price: 4 },
+  parfait9: { es: "Parfait de mora · 9 oz", en: "Blackberry parfait · 9 oz", price: 6 },
+  rice5: { es: "Arroz con leche · 5 oz", en: "Rice pudding · 5 oz", price: 4 },
+  rice9: { es: "Arroz con leche · 9 oz", en: "Rice pudding · 9 oz", price: 6 },
+  gelatin5: { es: "Gelatina mosaico · 5 oz", en: "Mosaic gelatin · 5 oz", price: 4 },
+  gelatin9: { es: "Gelatina mosaico · 9 oz", en: "Mosaic gelatin · 9 oz", price: 6 },
+  mango5: { es: "Cheesecake de mango · 5 oz", en: "Mango cheesecake · 5 oz", price: 4 },
+  mango9: { es: "Cheesecake de mango · 9 oz", en: "Mango cheesecake · 9 oz", price: 6 },
+  carlota5: { es: "Carlota de limón · 5 oz", en: "Lime carlota · 5 oz", price: 4 },
+  carlota9: { es: "Carlota de limón · 9 oz", en: "Lime carlota · 9 oz", price: 6 },
+  passion5: { es: "Mousse de maracuyá · 5 oz", en: "Passion fruit mousse · 5 oz", price: 4 },
+  passion9: { es: "Mousse de maracuyá · 9 oz", en: "Passion fruit mousse · 9 oz", price: 6 },
 };
 
 const translations = {
@@ -17,12 +22,12 @@ const translations = {
     navStory: "Nuestra historia",
     navOrder: "Pedir",
     orderNow: "Haz tu pedido",
-    heroEyebrow: "La historia de Sweet by Vale",
-    heroTitle: "El dulce sueño de Valeria, hecho con cariño.",
-    heroDescription: "Sweet by Vale nació de la ilusión de Valeria por crear postres bonitos y deliciosos. Con el apoyo de su familia, cada pedido le permite aprender, crecer y compartir un poquito de alegría.",
-    heroStoryKicker: "Todo comenzó con una idea dulce…",
-    heroStoryTitle: "Una pequeña emprendedora con un gran sueño",
-    heroStoryText: "Valeria prepara cada creación con ilusión y cuida los pequeños detalles. Su meta es seguir aprendiendo mientras lleva un poquito de felicidad a cada familia.",
+    heroEyebrow: "Postres por encargo en Wayne",
+    heroTitle: "Un momento dulce, preparado especialmente para ti.",
+    heroDescription: "Elige tu postre y el tamaño; si escoges arroz con leche, también puedes seleccionar tus toppings.",
+    heroStoryKicker: "Tu postre, a tu gusto",
+    heroStoryTitle: "Elige, personaliza y disfruta",
+    heroStoryText: "Escoge entre 5 oz y 9 oz y envía el pedido directamente por WhatsApp. El arroz con leche puede personalizarse con tus toppings favoritos.",
     dreamRibbon: "Hecho por encargo en Wayne, NJ",
     seeMenu: "Ver todos los postres",
     startOrder: "Comenzar pedido",
@@ -34,54 +39,53 @@ const translations = {
     whatsappContact: "Escríbenos por WhatsApp",
     whatsappShort: "WhatsApp",
     menuEyebrow: "Nuestro portafolio",
-    menuTitle: "Elige tu próximo favorito",
-    menuDescription: "Todos los precios están expresados en dólares. Elige la fecha que necesitas y prepararemos tu pedido especialmente para ese día.",
-    classicSize: "Presentación individual",
+    menuTitle: "Elige tu postre favorito",
+    menuDescription: "Elige entre 5 oz y 9 oz, selecciona la fecha y prepara tu pedido.",
+    chooseSize: "Elige el tamaño",
     parfaitName: "Parfait de mora",
-    parfaitDescription: "Cottage cheese, mora, arequipe, granola y arándanos.",
+    parfaitDescription: "Fruta, granola y arequipe, con la base que prefieras.",
+    chooseBase: "Elige la base",
+    greekYogurt: "Yogur griego",
     riceName: "Arroz con leche",
-    riceDescription: "Cremoso, casero y terminado con el sabor tradicional de la canela.",
+    riceDescription: "Receta casera que puedes terminar con los toppings que prefieras.",
+    chooseToppings: "Elige tus toppings",
+    cinnamonTopping: "Canela espolvoreada",
+    condensedTopping: "Leche condensada",
+    raisinsTopping: "Uvas pasas",
     gelatinName: "Gelatina mosaico",
-    gelatinDescription: "Colorida, cremosa y perfecta para grandes y pequeños.",
+    gelatinDescription: "Cubos de gelatina de distintos sabores en una presentación colorida.",
     mangoName: "Cheesecake de mango",
     mangoDescription: "Base de galleta, mezcla cremosa y mango fresco.",
     carlotaName: "Carlota de limón",
     carlotaDescription: "Suave crema de limón con una delicada base de galleta.",
-    fromThree: "Desde $3",
-    twoSizes: "Dos tamaños",
     passionName: "Mousse de maracuyá",
     passionDescription: "Base de galleta, mousse sedosa y cobertura de maracuyá.",
-    addOrder: "Agregar al pedido",
-    smallThree: "Pequeño · $3",
-    largeSix: "Grande 9 oz · $6",
-    storyEyebrow: "Nuestro compromiso",
-    storyTitle: "Lo que Valeria quiere compartir en cada postre",
-    storyParagraphOne: "Valeria quiere que cada postre llegue fresco, bonito y lleno de sabor, listo para acompañar un momento especial o simplemente alegrar el día de alguien.",
-    storyParagraphTwo: "Por eso cada pedido se prepara con tiempo, atención y el apoyo de su familia. Cada compra también la ayuda a continuar aprendiendo y haciendo crecer este sueño.",
-    promiseIntro: "Cada pedido se prepara con",
-    promiseOne: "Preparación por encargo",
-    promiseTwo: "Ingredientes seleccionados",
-    promiseThree: "Presentación cuidada",
-    chooseDesserts: "Elegir mis postres",
+    sizeFiveFour: "5 oz · $4",
+    sizeNineSix: "9 oz · $6",
+    storyEyebrow: "Nuestra historia",
+    storyTitle: "Una idea dulce que crece con cada pedido",
+    storyQuote: "Cada pedido es un paso más en el sueño de Valeria.",
+    storyParagraphOne: "Sweet by Vale nació cuando Valeria convirtió su gusto por crear postres en una oportunidad para aprender y emprender. Con el apoyo de su familia, cada pedido le permite fortalecer su creatividad y compartir un momento dulce con otras personas.",
+    discoverCreations: "Descubre sus creaciones",
     orderEyebrow: "Pedidos por WhatsApp",
     orderTitle: "Arma tu pedido",
-    orderDescription: "Agrega tus postres y envía los datos. Si eliges domicilio, confirmaremos el cargo adicional según la ubicación.",
+    orderDescription: "Agrega tus postres y elige el tamaño. El arroz con leche permite seleccionar toppings.",
     directContact: "Contacto directo",
     nameLabel: "Tu nombre",
     dateLabel: "Fecha deseada",
-    methodLabel: "Método preferido",
+    methodLabel: "Método de entrega",
     selectOption: "Selecciona una opción",
     pickupOption: "Recogida en Wayne",
-    deliveryOption: "Entrega a domicilio · cargo adicional",
+    deliveryOption: "Entrega a domicilio",
     paymentLabel: "Forma de pago",
     selectPayment: "Selecciona una opción",
     cashOption: "Efectivo",
     addressLabel: "Zona o dirección aproximada",
     addressPlaceholder: "Ciudad, calle o código postal",
-    notesLabel: "Notas o detalles",
-    notesPlaceholder: "Horario, alergias o indicaciones especiales",
+    notesLabel: "Recomendaciones o indicaciones especiales",
+    notesPlaceholder: "Alergias, cambios o cualquier detalle necesario",
     sendWhatsApp: "Enviar pedido por WhatsApp",
-    formNote: "Puedes pagar por Zelle o en efectivo. El total corresponde a los postres; la entrega a domicilio tiene un cargo adicional según la ubicación. El pedido se confirma por WhatsApp.",
+    formNote: "Puedes pagar por Zelle o en efectivo. El pedido se confirma por WhatsApp.",
     serviceEyebrow: "Wayne, New Jersey",
     serviceTitle: "Recogida en Wayne o entrega a domicilio",
     serviceDescription: "La entrega a domicilio tiene un cargo adicional calculado según la ubicación y confirmado antes de preparar el pedido.",
@@ -89,14 +93,14 @@ const translations = {
     footerTagline: "Creaciones dulces hechas con cariño",
     backTop: "Volver arriba",
     emptyCart: "Todavía no has agregado postres. Elige tus favoritos en el menú.",
-    estimatedTotal: "Total de postres",
+    estimatedTotal: "Valor total",
     orderAlert: "Agrega al menos un postre antes de enviar tu pedido.",
     added: "Agregado",
     messageHello: "Hola, quiero hacer un pedido de Sweet by Vale:",
     messageTotal: "Total estimado",
     messageName: "Nombre",
     messageDate: "Fecha deseada",
-    messageMethod: "Método",
+    messageMethod: "Método de entrega",
     messagePayment: "Forma de pago",
     messageAddress: "Zona o dirección",
     messageNotes: "Notas",
@@ -112,12 +116,12 @@ const translations = {
     navStory: "Our story",
     navOrder: "Order",
     orderNow: "Place an order",
-    heroEyebrow: "The Sweet by Vale story",
-    heroTitle: "Valeria's sweet dream, made with love.",
-    heroDescription: "Sweet by Vale began with Valeria's excitement for creating beautiful, delicious desserts. With her family's support, every order helps her learn, grow, and share a little joy.",
-    heroStoryKicker: "It all began with a sweet idea…",
-    heroStoryTitle: "A young entrepreneur with a big dream",
-    heroStoryText: "Valeria prepares every creation with excitement and cares for the little details. Her goal is to keep learning while bringing a little happiness to every family.",
+    heroEyebrow: "Made-to-order desserts in Wayne",
+    heroTitle: "A sweet moment, prepared especially for you.",
+    heroDescription: "Choose your dessert and size; if you select rice pudding, you can also choose your toppings.",
+    heroStoryKicker: "Your dessert, your way",
+    heroStoryTitle: "Choose, personalize, and enjoy",
+    heroStoryText: "Choose between 5 oz and 9 oz and send your order directly through WhatsApp. Rice pudding can be personalized with your favorite toppings.",
     dreamRibbon: "Made to order in Wayne, NJ",
     seeMenu: "Explore all desserts",
     startOrder: "Start an order",
@@ -129,54 +133,53 @@ const translations = {
     whatsappContact: "Message us on WhatsApp",
     whatsappShort: "WhatsApp",
     menuEyebrow: "Our portfolio",
-    menuTitle: "Choose your next favorite",
-    menuDescription: "All prices are in US dollars. Choose the date you need, and we will prepare your order especially for that day.",
-    classicSize: "Individual serving",
+    menuTitle: "Choose your favorite dessert",
+    menuDescription: "Choose between 5 oz and 9 oz, select the date, and build your order.",
+    chooseSize: "Choose a size",
     parfaitName: "Blackberry parfait",
-    parfaitDescription: "Cottage cheese, blackberry, dulce de leche, granola, and blueberries.",
+    parfaitDescription: "Fruit, granola, and dulce de leche with your preferred base.",
+    chooseBase: "Choose a base",
+    greekYogurt: "Greek yogurt",
     riceName: "Rice pudding",
-    riceDescription: "Creamy, homemade, and finished with the traditional flavor of cinnamon.",
+    riceDescription: "A homemade recipe finished with your choice of toppings.",
+    chooseToppings: "Choose your toppings",
+    cinnamonTopping: "Ground cinnamon",
+    condensedTopping: "Condensed milk",
+    raisinsTopping: "Raisins",
     gelatinName: "Mosaic gelatin",
-    gelatinDescription: "Colorful, creamy, and perfect for children and adults.",
+    gelatinDescription: "Colorful cubes of gelatin in assorted flavors.",
     mangoName: "Mango cheesecake",
     mangoDescription: "Cookie base, creamy cheesecake filling, and fresh mango.",
     carlotaName: "Lime carlota",
     carlotaDescription: "Smooth lime cream with a delicate cookie base.",
-    fromThree: "From $3",
-    twoSizes: "Two sizes",
     passionName: "Passion fruit mousse",
     passionDescription: "Cookie base, silky mousse, and passion fruit topping.",
-    addOrder: "Add to order",
-    smallThree: "Small · $3",
-    largeSix: "Large 9 oz · $6",
-    storyEyebrow: "Our promise",
-    storyTitle: "What Valeria wants to share in every dessert",
-    storyParagraphOne: "Valeria wants every dessert to arrive fresh, beautiful, and full of flavor, ready for a special moment or simply to brighten someone's day.",
-    storyParagraphTwo: "That is why every order is prepared with time, attention, and her family's support. Every purchase also helps her keep learning and growing this dream.",
-    promiseIntro: "Every order is prepared with",
-    promiseOne: "Made to order",
-    promiseTwo: "Selected ingredients",
-    promiseThree: "Thoughtful presentation",
-    chooseDesserts: "Choose my desserts",
+    sizeFiveFour: "5 oz · $4",
+    sizeNineSix: "9 oz · $6",
+    storyEyebrow: "Our story",
+    storyTitle: "A sweet idea that grows with every order",
+    storyQuote: "Every order is another step in Valeria's dream.",
+    storyParagraphOne: "Sweet by Vale began when Valeria turned her interest in making desserts into an opportunity to learn and grow as a young entrepreneur. With her family's support, every order helps her strengthen her creativity and share a sweet moment with others.",
+    discoverCreations: "Discover her creations",
     orderEyebrow: "Orders through WhatsApp",
     orderTitle: "Build your order",
-    orderDescription: "Add your desserts and details. If you choose delivery, we will confirm the additional fee based on your location.",
+    orderDescription: "Add your desserts and choose a size. Rice pudding includes topping selections.",
     directContact: "Direct contact",
     nameLabel: "Your name",
     dateLabel: "Requested date",
-    methodLabel: "Preferred method",
+    methodLabel: "Delivery method",
     selectOption: "Select an option",
     pickupOption: "Pickup in Wayne",
-    deliveryOption: "Home delivery · additional fee",
+    deliveryOption: "Home delivery",
     paymentLabel: "Payment method",
     selectPayment: "Select an option",
     cashOption: "Cash",
     addressLabel: "Area or approximate address",
     addressPlaceholder: "City, street, or ZIP code",
-    notesLabel: "Notes or details",
-    notesPlaceholder: "Time, allergies, or special instructions",
+    notesLabel: "Recommendations or special instructions",
+    notesPlaceholder: "Allergies, changes, or any necessary details",
     sendWhatsApp: "Send order through WhatsApp",
-    formNote: "You can pay with Zelle or cash. The total covers desserts only; home delivery has an additional fee based on location. The order is confirmed through WhatsApp.",
+    formNote: "You can pay with Zelle or cash. The order is confirmed through WhatsApp.",
     serviceEyebrow: "Wayne, New Jersey",
     serviceTitle: "Pickup in Wayne or home delivery",
     serviceDescription: "Home delivery has an additional fee calculated by location and confirmed before the order is prepared.",
@@ -184,14 +187,14 @@ const translations = {
     footerTagline: "Sweet creations made with love",
     backTop: "Back to top",
     emptyCart: "You have not added any desserts yet. Choose your favorites from the menu.",
-    estimatedTotal: "Dessert total",
+    estimatedTotal: "Order total",
     orderAlert: "Add at least one dessert before sending your order.",
     added: "Added",
     messageHello: "Hello, I would like to place a Sweet by Vale order:",
     messageTotal: "Estimated total",
     messageName: "Name",
     messageDate: "Requested date",
-    messageMethod: "Method",
+    messageMethod: "Delivery method",
     messagePayment: "Payment method",
     messageAddress: "Area or address",
     messageNotes: "Notes",
@@ -225,15 +228,15 @@ function money(value) {
 }
 
 function cartQuantity() {
-  return Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+  return Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
 }
 
 function cartTotal() {
-  return Object.entries(cart).reduce((sum, [id, quantity]) => sum + products[id].price * quantity, 0);
+  return Object.values(cart).reduce((sum, item) => sum + products[item.productId].price * item.quantity, 0);
 }
 
 function renderCart() {
-  const entries = Object.entries(cart).filter(([, quantity]) => quantity > 0);
+  const entries = Object.entries(cart).filter(([, item]) => item.quantity > 0);
   cartCount.textContent = String(cartQuantity());
 
   if (!entries.length) {
@@ -242,20 +245,22 @@ function renderCart() {
   }
 
   const rows = entries
-    .map(([id, quantity]) => {
-      const product = products[id];
+    .map(([cartId, item]) => {
+      const product = products[item.productId];
+      const customization = item.options.map((option) => option[language]).join(" · ");
       return `
         <div class="order-row">
           <div>
             <strong>${product[language]}</strong>
+            ${customization ? `<small class="order-customization">${customization}</small>` : ""}
             <small>${money(product.price)} c/u</small>
           </div>
           <div class="quantity-control" aria-label="Cantidad de ${product[language]}">
-            <button type="button" data-cart-action="decrease" data-product-id="${id}" aria-label="Disminuir cantidad">−</button>
-            <span>${quantity}</span>
-            <button type="button" data-cart-action="increase" data-product-id="${id}" aria-label="Aumentar cantidad">+</button>
+            <button type="button" data-cart-action="decrease" data-cart-id="${cartId}" aria-label="Disminuir cantidad">−</button>
+            <span>${item.quantity}</span>
+            <button type="button" data-cart-action="increase" data-cart-id="${cartId}" aria-label="Aumentar cantidad">+</button>
           </div>
-          <strong>${money(product.price * quantity)}</strong>
+          <strong>${money(product.price * item.quantity)}</strong>
         </div>`;
     })
     .join("");
@@ -288,8 +293,16 @@ function setLanguage(nextLanguage) {
 
 document.querySelectorAll(".add-button").forEach((button) => {
   button.addEventListener("click", () => {
-    const id = button.dataset.product;
-    cart[id] = (cart[id] || 0) + 1;
+    const productId = button.dataset.product;
+    const card = button.closest(".product-card");
+    const options = [...card.querySelectorAll(".product-options input:checked")].map((input) => ({
+      es: input.dataset.optionEs,
+      en: input.dataset.optionEn,
+    }));
+    const optionKey = options.map((option) => option.es).join("|") || "standard";
+    const cartId = `${productId}::${optionKey}`;
+    if (!cart[cartId]) cart[cartId] = { productId, options, quantity: 0 };
+    cart[cartId].quantity += 1;
     renderCart();
 
     const originalKey = button.dataset.i18n;
@@ -306,10 +319,10 @@ orderSummary.addEventListener("click", (event) => {
   const button = event.target.closest("[data-cart-action]");
   if (!button) return;
 
-  const id = button.dataset.productId;
+  const id = button.dataset.cartId;
   const change = button.dataset.cartAction === "increase" ? 1 : -1;
-  cart[id] = Math.max(0, (cart[id] || 0) + change);
-  if (cart[id] === 0) delete cart[id];
+  cart[id].quantity = Math.max(0, cart[id].quantity + change);
+  if (cart[id].quantity === 0) delete cart[id];
   renderCart();
 });
 
@@ -326,7 +339,7 @@ fulfillmentSelect.addEventListener("change", () => {
 
 orderForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const entries = Object.entries(cart).filter(([, quantity]) => quantity > 0);
+  const entries = Object.entries(cart).filter(([, item]) => item.quantity > 0);
 
   if (!entries.length) {
     window.alert(translations[language].orderAlert);
@@ -343,9 +356,11 @@ orderForm.addEventListener("submit", (event) => {
   const methodText = fulfillment === "pickup" ? translations[language].pickupValue : translations[language].deliveryValue;
   const paymentText = paymentMethod === "zelle" ? translations[language].zelleValue : translations[language].cashValue;
 
-  const productLines = entries.map(([id, quantity]) => {
-    const product = products[id];
-    return `- ${quantity} × ${product[language]} (${money(product.price)}) = ${money(product.price * quantity)}`;
+  const productLines = entries.map(([, item]) => {
+    const product = products[item.productId];
+    const customization = item.options.map((option) => option[language]).join(", ");
+    const details = customization ? ` · ${customization}` : "";
+    return `- ${item.quantity} × ${product[language]}${details} (${money(product.price)}) = ${money(product.price * item.quantity)}`;
   });
 
   const message = [

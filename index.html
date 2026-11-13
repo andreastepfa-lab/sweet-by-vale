@@ -53,10 +53,10 @@
     <main id="main">
       <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="heroEyebrow">La historia de Sweet by Vale</p>
-          <h1 id="hero-title" data-i18n="heroTitle">El dulce sueño de Valeria, hecho con cariño.</h1>
+          <p class="eyebrow" data-i18n="heroEyebrow">Postres por encargo en Wayne</p>
+          <h1 id="hero-title" data-i18n="heroTitle">Un momento dulce, preparado especialmente para ti.</h1>
           <p class="hero-description" data-i18n="heroDescription">
-            Sweet by Vale nació de la ilusión de Valeria por crear postres bonitos y deliciosos. Con el apoyo de su familia, cada pedido le permite aprender, crecer y compartir un poquito de alegría.
+            Elige tu postre y el tamaño; si escoges arroz con leche, también puedes seleccionar tus toppings.
           </p>
           <div class="hero-actions">
             <a class="button" href="#menu" data-i18n="seeMenu">Ver todos los postres</a>
@@ -75,10 +75,10 @@
           <div class="hero-logo-wrap">
             <img src="assets/logo.png" alt="Logo de Sweet by Vale" fetchpriority="high" />
           </div>
-          <p class="story-kicker" data-i18n="heroStoryKicker">Todo comenzó con una idea dulce…</p>
-          <h2 data-i18n="heroStoryTitle">Una pequeña emprendedora con un gran sueño</h2>
+          <p class="story-kicker" data-i18n="heroStoryKicker">Tu postre, a tu gusto</p>
+          <h2 data-i18n="heroStoryTitle">Elige, personaliza y disfruta</h2>
           <p data-i18n="heroStoryText">
-            Valeria prepara cada creación con ilusión y cuida los pequeños detalles. Su meta es seguir aprendiendo mientras lleva un poquito de felicidad a cada familia.
+            Escoge entre 5 oz y 9 oz y envía el pedido directamente por WhatsApp. El arroz con leche puede personalizarse con tus toppings favoritos.
           </p>
           <div class="dream-ribbon" data-i18n="dreamRibbon">Hecho por encargo en Wayne, NJ</div>
         </div>
@@ -100,10 +100,10 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow" data-i18n="menuEyebrow">Nuestro portafolio</p>
-            <h2 id="menu-title" data-i18n="menuTitle">Elige tu próximo favorito</h2>
+            <h2 id="menu-title" data-i18n="menuTitle">Elige tu postre favorito</h2>
           </div>
           <p data-i18n="menuDescription">
-            Todos los precios están expresados en dólares. Elige la fecha que necesitas y prepararemos tu pedido especialmente para ese día.
+            Elige entre 5 oz y 9 oz, selecciona la fecha y prepara tu pedido.
           </p>
         </div>
 
@@ -111,80 +111,100 @@
           <article class="product-card">
             <div class="product-image">
               <img src="assets/parfait-mora-studio.jpg" alt="Parfait de mora en vaso" loading="lazy" />
-              <span class="price-badge">$6</span>
             </div>
             <div class="product-body">
-              <p class="product-size">9 oz</p>
+              <p class="product-size" data-i18n="chooseSize">Elige el tamaño</p>
               <h3 data-i18n="parfaitName">Parfait de mora</h3>
-              <p data-i18n="parfaitDescription">Cottage cheese, mora, arequipe, granola y arándanos.</p>
-              <button class="add-button" type="button" data-product="parfait" data-i18n="addOrder">Agregar al pedido</button>
+              <p data-i18n="parfaitDescription">Fruta, granola y arequipe, con la base que prefieras.</p>
+              <fieldset class="product-options">
+                <legend data-i18n="chooseBase">Elige la base</legend>
+                <label><input type="radio" name="parfait-base" value="Cottage cheese" data-option-es="Cottage cheese" data-option-en="Cottage cheese" checked /> <span>Cottage cheese</span></label>
+                <label><input type="radio" name="parfait-base" value="Yogur griego" data-option-es="Yogur griego" data-option-en="Greek yogurt" /> <span data-i18n="greekYogurt">Yogur griego</span></label>
+              </fieldset>
+              <div class="variant-buttons">
+                <button class="add-button" type="button" data-product="parfait5" data-i18n="sizeFiveFour">5 oz · $4</button>
+                <button class="add-button" type="button" data-product="parfait9" data-i18n="sizeNineSix">9 oz · $6</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
               <img src="assets/arroz-con-leche-studio.jpg" alt="Arroz con leche en vaso" loading="lazy" />
-              <span class="price-badge">$5</span>
             </div>
             <div class="product-body">
-              <p class="product-size" data-i18n="classicSize">Presentación individual</p>
+              <p class="product-size" data-i18n="chooseSize">Elige el tamaño</p>
               <h3 data-i18n="riceName">Arroz con leche</h3>
-              <p data-i18n="riceDescription">Cremoso, casero y terminado con el sabor tradicional de la canela.</p>
-              <button class="add-button" type="button" data-product="rice" data-i18n="addOrder">Agregar al pedido</button>
+              <p data-i18n="riceDescription">Receta casera que puedes terminar con los toppings que prefieras.</p>
+              <fieldset class="product-options product-options-wrap">
+                <legend data-i18n="chooseToppings">Elige tus toppings</legend>
+                <label><input type="checkbox" data-option-es="Canela espolvoreada" data-option-en="Ground cinnamon" checked /> <span data-i18n="cinnamonTopping">Canela espolvoreada</span></label>
+                <label><input type="checkbox" data-option-es="Leche condensada" data-option-en="Condensed milk" /> <span data-i18n="condensedTopping">Leche condensada</span></label>
+                <label><input type="checkbox" data-option-es="Uvas pasas" data-option-en="Raisins" /> <span data-i18n="raisinsTopping">Uvas pasas</span></label>
+              </fieldset>
+              <div class="variant-buttons">
+                <button class="add-button" type="button" data-product="rice5" data-i18n="sizeFiveFour">5 oz · $4</button>
+                <button class="add-button" type="button" data-product="rice9" data-i18n="sizeNineSix">9 oz · $6</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
               <img src="assets/gelatina-mosaico-studio.jpg" alt="Gelatina mosaico en vaso" loading="lazy" />
-              <span class="price-badge">$5</span>
             </div>
             <div class="product-body">
-              <p class="product-size" data-i18n="classicSize">Presentación individual</p>
+              <p class="product-size" data-i18n="chooseSize">Elige el tamaño</p>
               <h3 data-i18n="gelatinName">Gelatina mosaico</h3>
-              <p data-i18n="gelatinDescription">Colorida, cremosa y perfecta para grandes y pequeños.</p>
-              <button class="add-button" type="button" data-product="gelatin" data-i18n="addOrder">Agregar al pedido</button>
+              <p data-i18n="gelatinDescription">Cubos de gelatina de distintos sabores en una presentación colorida.</p>
+              <div class="variant-buttons">
+                <button class="add-button" type="button" data-product="gelatin5" data-i18n="sizeFiveFour">5 oz · $4</button>
+                <button class="add-button" type="button" data-product="gelatin9" data-i18n="sizeNineSix">9 oz · $6</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
               <img src="assets/cheesecake-mango-studio.jpg" alt="Cheesecake de mango en vaso" loading="lazy" />
-              <span class="price-badge">$6</span>
             </div>
             <div class="product-body">
-              <p class="product-size">9 oz</p>
+              <p class="product-size" data-i18n="chooseSize">Elige el tamaño</p>
               <h3 data-i18n="mangoName">Cheesecake de mango</h3>
               <p data-i18n="mangoDescription">Base de galleta, mezcla cremosa y mango fresco.</p>
-              <button class="add-button" type="button" data-product="mango" data-i18n="addOrder">Agregar al pedido</button>
+              <div class="variant-buttons">
+                <button class="add-button" type="button" data-product="mango5" data-i18n="sizeFiveFour">5 oz · $4</button>
+                <button class="add-button" type="button" data-product="mango9" data-i18n="sizeNineSix">9 oz · $6</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
               <img src="assets/carlota-limon-studio.jpg" alt="Carlota de limón en vaso" loading="lazy" />
-              <span class="price-badge">$6</span>
             </div>
             <div class="product-body">
-              <p class="product-size">9 oz</p>
+              <p class="product-size" data-i18n="chooseSize">Elige el tamaño</p>
               <h3 data-i18n="carlotaName">Carlota de limón</h3>
               <p data-i18n="carlotaDescription">Suave crema de limón con una delicada base de galleta.</p>
-              <button class="add-button" type="button" data-product="carlota" data-i18n="addOrder">Agregar al pedido</button>
+              <div class="variant-buttons">
+                <button class="add-button" type="button" data-product="carlota5" data-i18n="sizeFiveFour">5 oz · $4</button>
+                <button class="add-button" type="button" data-product="carlota9" data-i18n="sizeNineSix">9 oz · $6</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card product-card-featured">
             <div class="product-image">
               <img src="assets/mousse-maracuya-studio.jpg" alt="Mousse de maracuyá en vaso" loading="lazy" />
-              <span class="price-badge" data-i18n="fromThree">Desde $3</span>
             </div>
             <div class="product-body">
-              <p class="product-size" data-i18n="twoSizes">Dos tamaños</p>
+              <p class="product-size" data-i18n="chooseSize">Elige el tamaño</p>
               <h3 data-i18n="passionName">Mousse de maracuyá</h3>
               <p data-i18n="passionDescription">Base de galleta, mousse sedosa y cobertura de maracuyá.</p>
               <div class="variant-buttons">
-                <button class="add-button" type="button" data-product="passionSmall" data-i18n="smallThree">Pequeño · $3</button>
-                <button class="add-button" type="button" data-product="passionLarge" data-i18n="largeSix">Grande 9 oz · $6</button>
+                <button class="add-button" type="button" data-product="passion5" data-i18n="sizeFiveFour">5 oz · $4</button>
+                <button class="add-button" type="button" data-product="passion9" data-i18n="sizeNineSix">9 oz · $6</button>
               </div>
             </div>
           </article>
@@ -192,37 +212,17 @@
       </section>
 
       <section class="story-section" id="story" aria-labelledby="story-title">
-        <div class="shell story-grid">
-          <div class="promise-card" aria-label="Compromisos de Sweet by Vale">
-            <span class="promise-heart promise-heart-one" aria-hidden="true">♡</span>
-            <span class="promise-heart promise-heart-two" aria-hidden="true">♡</span>
-            <img class="promise-logo" src="assets/logo.png" alt="Sweet by Vale" loading="lazy" />
-            <p class="promise-intro" data-i18n="promiseIntro">Cada pedido se prepara con</p>
-            <div class="promise-list">
-              <div>
-                <span>01</span>
-                <strong data-i18n="promiseOne">Preparación por encargo</strong>
-              </div>
-              <div>
-                <span>02</span>
-                <strong data-i18n="promiseTwo">Ingredientes seleccionados</strong>
-              </div>
-              <div>
-                <span>03</span>
-                <strong data-i18n="promiseThree">Presentación cuidada</strong>
-              </div>
-            </div>
+        <div class="shell story-grid story-editorial">
+          <div class="story-quote-card" aria-label="El sueño de Valeria">
+            <span class="story-quote-heart" aria-hidden="true">♡</span>
+            <p data-i18n="storyQuote">Cada pedido es un paso más en el sueño de Valeria.</p>
+            <span>Sweet by Vale · Wayne, NJ</span>
           </div>
           <div class="story-copy">
-            <p class="eyebrow" data-i18n="storyEyebrow">Nuestro compromiso</p>
-            <h2 id="story-title" data-i18n="storyTitle">Lo que Valeria quiere compartir en cada postre</h2>
-            <p data-i18n="storyParagraphOne">
-              Valeria quiere que cada postre llegue fresco, bonito y lleno de sabor, listo para acompañar un momento especial o simplemente alegrar el día de alguien.
-            </p>
-            <p data-i18n="storyParagraphTwo">
-              Por eso cada pedido se prepara con tiempo, atención y el apoyo de su familia. Cada compra también la ayuda a continuar aprendiendo y haciendo crecer este sueño.
-            </p>
-            <a class="text-link" href="#order" data-i18n="chooseDesserts">Elegir mis postres</a>
+            <p class="eyebrow" data-i18n="storyEyebrow">Nuestra historia</p>
+            <h2 id="story-title" data-i18n="storyTitle">Una idea dulce que crece con cada pedido</h2>
+            <p data-i18n="storyParagraphOne">Sweet by Vale nació cuando Valeria convirtió su gusto por crear postres en una oportunidad para aprender y emprender. Con el apoyo de su familia, cada pedido le permite fortalecer su creatividad y compartir un momento dulce con otras personas.</p>
+            <a class="button" href="#menu" data-i18n="discoverCreations">Descubre sus creaciones</a>
           </div>
         </div>
       </section>
@@ -232,7 +232,7 @@
           <p class="eyebrow" data-i18n="orderEyebrow">Pedidos por WhatsApp</p>
           <h2 id="order-title" data-i18n="orderTitle">Arma tu pedido</h2>
           <p data-i18n="orderDescription">
-            Agrega tus postres y envía los datos. Si eliges domicilio, confirmaremos el cargo adicional según la ubicación.
+            Agrega tus postres y elige el tamaño. El arroz con leche permite seleccionar toppings.
           </p>
           <div class="order-contact">
             <span data-i18n="directContact">Contacto directo</span>
@@ -253,11 +253,11 @@
               <input id="requestedDate" name="requestedDate" type="date" required />
             </label>
             <label>
-              <span data-i18n="methodLabel">Método preferido</span>
+              <span data-i18n="methodLabel">Método de entrega</span>
               <select id="fulfillment" name="fulfillment" required>
                 <option value="" data-i18n="selectOption">Selecciona una opción</option>
                 <option value="pickup" data-i18n="pickupOption">Recogida en Wayne</option>
-                <option value="delivery" data-i18n="deliveryOption">Entrega a domicilio · cargo adicional</option>
+                <option value="delivery" data-i18n="deliveryOption">Entrega a domicilio</option>
               </select>
             </label>
             <label>
@@ -273,14 +273,14 @@
               <input id="deliveryAddress" name="deliveryAddress" autocomplete="street-address" data-i18n-placeholder="addressPlaceholder" placeholder="Ciudad, calle o código postal" />
             </label>
             <label>
-              <span data-i18n="notesLabel">Notas o detalles</span>
-              <textarea id="notes" name="notes" rows="3" data-i18n-placeholder="notesPlaceholder" placeholder="Horario, alergias o indicaciones especiales"></textarea>
+              <span data-i18n="notesLabel">Recomendaciones o indicaciones especiales</span>
+              <textarea id="notes" name="notes" rows="3" data-i18n-placeholder="notesPlaceholder" placeholder="Alergias, cambios o cualquier detalle necesario"></textarea>
             </label>
           </div>
 
           <button class="button whatsapp-button" type="submit" data-i18n="sendWhatsApp">Enviar pedido por WhatsApp</button>
           <p class="form-note" data-i18n="formNote">
-            Puedes pagar por Zelle o en efectivo. El total corresponde a los postres; la entrega a domicilio tiene un cargo adicional según la ubicación. El pedido se confirma por WhatsApp.
+            Puedes pagar por Zelle o en efectivo. El pedido se confirma por WhatsApp.
           </p>
         </form>
       </section>
