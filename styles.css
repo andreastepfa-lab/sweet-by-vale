@@ -1164,3 +1164,9 @@ h3 {
 .hero-logo-wrap img {
   object-fit: cover;
 }
+
+.hero-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+}
