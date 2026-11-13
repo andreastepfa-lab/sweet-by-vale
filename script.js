@@ -1,4 +1,5 @@
 const WHATSAPP_NUMBER = "18623798696";
+const MIN_LEAD_DAYS = 2; // días mínimos de anticipación para un pedido
 
 const products = {
   parfait5: { es: "Parfait de mora · 5 oz", en: "Blackberry parfait · 5 oz", price: 4 },
@@ -73,6 +74,12 @@ const translations = {
     directContact: "Contacto directo",
     nameLabel: "Tu nombre",
     dateLabel: "Fecha deseada",
+    dateHint: "Pedidos con mínimo 2 días de anticipación.",
+    allergenNote: "Alérgenos: nuestros postres pueden contener lácteos, gluten (galleta y granola), frutos secos y huevo. Si tienes alguna alergia, escríbela en tu pedido y la confirmamos por WhatsApp.",
+    quantityOf: "Cantidad de",
+    decrease: "Disminuir cantidad",
+    increase: "Aumentar cantidad",
+    each: "c/u",
     methodLabel: "Método de entrega",
     selectOption: "Selecciona una opción",
     pickupOption: "Recogida en Wayne",
@@ -167,6 +174,12 @@ const translations = {
     directContact: "Direct contact",
     nameLabel: "Your name",
     dateLabel: "Requested date",
+    dateHint: "Orders need at least 2 days' notice.",
+    allergenNote: "Allergens: our desserts may contain dairy, gluten (cookie and granola), tree nuts, and egg. If you have an allergy, add it to your order and we will confirm through WhatsApp.",
+    quantityOf: "Quantity of",
+    decrease: "Decrease quantity",
+    increase: "Increase quantity",
+    each: "each",
     methodLabel: "Delivery method",
     selectOption: "Select an option",
     pickupOption: "Pickup in Wayne",
@@ -235,14 +248,29 @@ function cartTotal() {
   return Object.values(cart).reduce((sum, item) => sum + products[item.productId].price * item.quantity, 0);
 }
 
+let emptyWarning = false;
+
+function formatDate(value) {
+  const [year, month, day] = value.split("-").map(Number);
+  const text = new Intl.DateTimeFormat(language === "es" ? "es-US" : "en-US", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(year, month - 1, day));
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 function renderCart() {
   const entries = Object.entries(cart).filter(([, item]) => item.quantity > 0);
   cartCount.textContent = String(cartQuantity());
 
   if (!entries.length) {
-    orderSummary.innerHTML = `<p class="empty-order">${translations[language].emptyCart}</p>`;
+    const key = emptyWarning ? "orderAlert" : "emptyCart";
+    orderSummary.innerHTML = `<p class="empty-order${emptyWarning ? " empty-order-warning" : ""}">${translations[language][key]}</p>`;
     return;
   }
+  emptyWarning = false;
 
   const rows = entries
     .map(([cartId, item]) => {
@@ -253,12 +281,12 @@ function renderCart() {
           <div>
             <strong>${product[language]}</strong>
             ${customization ? `<small class="order-customization">${customization}</small>` : ""}
-            <small>${money(product.price)} c/u</small>
+            <small>${money(product.price)} ${translations[language].each}</small>
           </div>
-          <div class="quantity-control" aria-label="Cantidad de ${product[language]}">
-            <button type="button" data-cart-action="decrease" data-cart-id="${cartId}" aria-label="Disminuir cantidad">−</button>
+          <div class="quantity-control" aria-label="${translations[language].quantityOf} ${product[language]}">
+            <button type="button" data-cart-action="decrease" data-cart-id="${cartId}" aria-label="${translations[language].decrease}">−</button>
             <span>${item.quantity}</span>
-            <button type="button" data-cart-action="increase" data-cart-id="${cartId}" aria-label="Aumentar cantidad">+</button>
+            <button type="button" data-cart-action="increase" data-cart-id="${cartId}" aria-label="${translations[language].increase}">+</button>
           </div>
           <strong>${money(product.price * item.quantity)}</strong>
         </div>`;
@@ -337,13 +365,25 @@ fulfillmentSelect.addEventListener("change", () => {
   if (!needsAddress) deliveryAddress.value = "";
 });
 
+function warnEmptyCart() {
+  emptyWarning = true;
+  renderCart();
+  orderSummary.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+// Avisa del pedido vacío antes de que el navegador pida completar los campos.
+orderForm.querySelector('[type="submit"]').addEventListener("click", (event) => {
+  if (cartQuantity() > 0) return;
+  event.preventDefault();
+  warnEmptyCart();
+});
+
 orderForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const entries = Object.entries(cart).filter(([, item]) => item.quantity > 0);
 
   if (!entries.length) {
-    window.alert(translations[language].orderAlert);
-    document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+    warnEmptyCart();
     return;
   }
 
@@ -370,7 +410,7 @@ orderForm.addEventListener("submit", (event) => {
     "",
     `${translations[language].messageTotal}: ${money(cartTotal())}`,
     `${translations[language].messageName}: ${customerName}`,
-    `${translations[language].messageDate}: ${requestedDate.value}`,
+    `${translations[language].messageDate}: ${formatDate(requestedDate.value)}`,
     `${translations[language].messageMethod}: ${methodText}`,
     `${translations[language].messagePayment}: ${paymentText}`,
     fulfillment === "delivery" ? `${translations[language].messageAddress}: ${deliveryAddress.value.trim()}` : "",
@@ -384,8 +424,12 @@ orderForm.addEventListener("submit", (event) => {
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
 });
 
-const today = new Date();
-const offset = today.getTimezoneOffset();
-requestedDate.min = new Date(today.getTime() - offset * 60000).toISOString().split("T")[0];
+const earliest = new Date();
+earliest.setDate(earliest.getDate() + MIN_LEAD_DAYS);
+requestedDate.min = [
+  earliest.getFullYear(),
+  String(earliest.getMonth() + 1).padStart(2, "0"),
+  String(earliest.getDate()).padStart(2, "0"),
+].join("-");
 
 setLanguage("es");
